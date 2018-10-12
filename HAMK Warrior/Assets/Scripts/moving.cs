@@ -15,6 +15,7 @@ public class moving : MonoBehaviour
     //Parameters for player
     public int jump;
     public bool grounded = false;
+    private int speed = 8;  //this is player's maxspeed that they won't slide throught the objects
 
     // ****************
     // UI
@@ -31,9 +32,25 @@ public class moving : MonoBehaviour
     }
 
     // Update is called once per frame
+
+
+    // Update is called once per frame
+    // When user tilts phone, player will go forward or backward (depends where user tilts phone)
     void Update()
     {
+        Vector3 dir = Vector3.zero;
+        dir.x = Input.acceleration.x;
+        // Clamp acceleration vector to unit sphere 
+        if (dir.sqrMagnitude > 1)
+        {
+            dir.Normalize();
+        }
+        // Make it move 10 meters per second instead of 10 meters per frame...
+        dir *= Time.deltaTime;
 
+        //Move object
+        //normally you don't use minus in dir but in this project it was needed that player will go forward when phone is tilted to right
+        transform.Translate(-dir * speed);
     }
 
     // When  user taps Jump-button, player will jump up
@@ -54,7 +71,6 @@ public class moving : MonoBehaviour
     // ****************
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         //If player collided objects which have tag named:"Ground", make grounded-value true
         if (collision.transform.tag == "ground")
         {
