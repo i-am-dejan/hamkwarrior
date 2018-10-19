@@ -13,4 +13,12 @@ public class killPlayer : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<Dying>().die();
+        }
+    }
 }

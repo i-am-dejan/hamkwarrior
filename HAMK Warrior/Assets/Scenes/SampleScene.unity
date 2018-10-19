@@ -427,9 +427,10 @@ GameObject:
   - component: {fileID: 629896897}
   - component: {fileID: 629896898}
   - component: {fileID: 629896899}
+  - component: {fileID: 629896900}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,6 +639,17 @@ PolygonCollider2D:
       - {x: -0.22, y: -0.65999997}
       - {x: -0.22, y: -0.68}
       - {x: -0.21, y: -0.68}
+--- !u!114 &629896900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 629896894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a53d584f556474a93cc5a591affd24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &734002025
 GameObject:
   m_ObjectHideFlags: 0
@@ -48913,6 +48925,7 @@ GameObject:
   - component: {fileID: 1412901753}
   - component: {fileID: 1412901752}
   - component: {fileID: 1412901754}
+  - component: {fileID: 1412901755}
   m_Layer: 0
   m_Name: Tilemap_Spikes_Ground
   m_TagString: Untagged
@@ -49384,6 +49397,17 @@ TilemapCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+--- !u!114 &1412901755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1412901750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330b1cc3a492fd64faeaf8bdcc43c431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1743454307
 GameObject:
   m_ObjectHideFlags: 0
