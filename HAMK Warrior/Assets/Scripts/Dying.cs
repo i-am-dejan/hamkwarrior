@@ -18,5 +18,7 @@ public class Dying : MonoBehaviour {
     {
         Debug.Log("Oh no, you fell to your death.");
         Time.timeScale = 0.0f;
+        // Stop Musik
+        // Dead screen
     }
 }
