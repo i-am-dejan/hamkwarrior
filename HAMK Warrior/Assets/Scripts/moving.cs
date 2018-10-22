@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class moving : MonoBehaviour
 {
-    float MaxSpeed = 8.0f;
+    float MaxSpeed = 6.0f;
 
     // ****************
     // CHARACTER
