@@ -8,10 +8,8 @@ public class PanelMenu : MonoBehaviour {
 	public void StartGame ()
     {
         GameObject panel = GameObject.FindGameObjectWithTag("Panel");
-        panel.active = false;
+        panel.SetActive(false);
         Debug.Log("Button gedrückt.");
-        // Time.timeScale = 1.0f;
-        //Panel.GetComponentInChildren<Image>().enabled = false;
-        //Panel.renderer.enabled = false;
+        Time.timeScale = 1.0f;
     }
 }
