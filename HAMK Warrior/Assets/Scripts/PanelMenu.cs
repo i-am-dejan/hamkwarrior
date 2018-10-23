@@ -9,7 +9,7 @@ public class PanelMenu : MonoBehaviour {
     {
         GameObject panel = GameObject.FindGameObjectWithTag("Panel");
         panel.SetActive(false);
-        Debug.Log("Button gedrückt.");
+        Debug.Log("Close Introdution Panel");
         Time.timeScale = 1.0f;
     }
 }
