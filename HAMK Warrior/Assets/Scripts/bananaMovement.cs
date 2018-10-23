@@ -21,13 +21,13 @@ public class bananaMovement : MonoBehaviour
 
         if (moving.facingRight)
         {
-            rb.velocity = transform.right * speed;
+            rb.velocity = transform.right * -speed;
             transform.Rotate(0f, 180f, 0f);
 
         }
         else
         {
-            rb.velocity = transform.right * -speed;
+            rb.velocity = transform.right * speed;
             transform.Rotate(0f, 0f, 0f);
         }
 
