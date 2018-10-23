@@ -1015,8 +1015,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "This game was developed for a project at the H\xE4me University of Applied
-    Sciences by Dejan Trifunovic, Lindert Van de Poel and Tiina Ahola."
+  m_text: "This game was developed for a software project at the H\xE4me University
+    of Applied Sciences by Dejan Trifunovic, Lindert Van de Poel and Tiina Ahola."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
