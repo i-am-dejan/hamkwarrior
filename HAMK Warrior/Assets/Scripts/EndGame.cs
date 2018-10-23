@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour {
 
-    public GameObject player;   
+    public GameObject player;
+    public GameObject panel;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,8 @@ public class EndGame : MonoBehaviour {
         {
             Debug.Log("You are a winner");
             Time.timeScale = 0.0f;
+            // winner musik
+            panel.SetActive(true);
         }
     }
 
