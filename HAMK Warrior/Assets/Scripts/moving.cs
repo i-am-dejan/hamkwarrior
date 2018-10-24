@@ -27,6 +27,7 @@ public class moving : MonoBehaviour
     public static bool isDead = false;
     public GameObject GameOverPanel;
     public static int collectedDiamonds = 0;
+    public static int collectedDiamondsTotally;
     public AudioClip MusicClip;
     public AudioSource MusicSource;
     public AudioSource BackgroundMusic;
