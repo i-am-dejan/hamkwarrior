@@ -53,7 +53,10 @@ public class moving : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Time.timeScale = 0.0f;
+        if (SceneManager.GetActiveScene().name == "Level1") 
+        {
+            Time.timeScale = 0.0f;
+        }
         rb = GetComponent<Rigidbody2D>();
         Button btn1 = btn_jump.GetComponent<Button>();
         btn1.onClick.AddListener(TaskOnClick);
