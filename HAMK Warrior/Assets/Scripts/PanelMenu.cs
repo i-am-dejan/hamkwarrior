@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PanelMenu : MonoBehaviour {
- 
+
+    public GameObject MenuButton;
 
 	public void StartGame ()
     {
@@ -11,5 +12,7 @@ public class PanelMenu : MonoBehaviour {
         panel.SetActive(false);
         Debug.Log("Close Introdution Panel");
         Time.timeScale = 1.0f;
+        MenuButton.SetActive(true);
+
     }
 }

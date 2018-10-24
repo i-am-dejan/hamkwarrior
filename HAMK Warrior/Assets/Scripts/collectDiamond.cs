@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collectDiamond : MonoBehaviour {
+public class collectDiamond : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
+
+    // Use this for initialization
+    void Start()
+    {
+        MusicSource.clip = MusicClip;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,7 +27,7 @@ public class collectDiamond : MonoBehaviour {
             Destroy(gameObject);
             moving.collectedDiamonds++;
             Debug.Log("Collected Diamonds " + moving.collectedDiamonds);
-            // MusicSource.Play();
+            MusicSource.Play();
             // collision.gameObject.GetComponent<IncreaseDigit>().increaseNumber();
         }
     }

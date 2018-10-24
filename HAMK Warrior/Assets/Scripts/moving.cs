@@ -27,6 +27,9 @@ public class moving : MonoBehaviour
     public static bool isDead = false;
     public GameObject GameOverPanel;
     public static int collectedDiamonds = 0;
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
+
 
     // ****************
     // UI
@@ -50,6 +53,7 @@ public class moving : MonoBehaviour
         heart1.SetActive(true);
         heart2.SetActive(true);
         heart3.SetActive(true);
+        MusicSource.clip = MusicClip;
     }
 
 
@@ -57,7 +61,7 @@ public class moving : MonoBehaviour
     // When user tilts phone, player will go forward or backward (depends where user tilts phone)
     void Update()
     {
-        Scores.text = "x " + collectedDiamonds.ToString();
+        Scores.text = " " + collectedDiamonds.ToString();
 
         {
             dirX = 0;
@@ -80,15 +84,16 @@ public class moving : MonoBehaviour
             }
         }
 
-        ///* --------------------------------------------------- */
-        ///* DELETE THIS - TESTING PURPOSES ONLY */
-        //float move = Input.GetAxis("Horizontal");
+        /* --------------------------------------------------- */
+        /* DELETE THIS - TESTING PURPOSES ONLY */
+        float move = Input.GetAxis("Horizontal");
 
-        //dirX = move * MaxSpeed;
-        //if (!isDead) {
-        //    GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        //}
-        ///* --------------------------------------------------- */
+        dirX = move * MaxSpeed;
+        if (!isDead)
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        }
+        /* --------------------------------------------------- */
 
         if (dirX != 0)
         {
@@ -120,6 +125,7 @@ public class moving : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump);
             // rb.AddForce(Vector2.up * 600f);
             grounded = false;
+            MusicSource.Play();
         }
     }
 

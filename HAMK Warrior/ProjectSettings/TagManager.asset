@@ -8,6 +8,8 @@ TagManager:
   - AudioSound
   - enemy
   - Panel
+  - MenuButton
+  - Diamonds
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class Pause : MonoBehaviour
     //Parameters for buttons and texts
     public Button PauseButton; //hide the pausebutton when PauseMenu-panel is active
     public GameObject pausePanel;
+    public GameObject tutorialPanel;
     public Button ContinueButton;
     public GameObject hearts;
     public Button TutorialButton;
+    public Button RetryGameButton;
     public Button EndGameButton;
 
     //set pausepanel and child objects visible
@@ -27,11 +30,14 @@ public class Pause : MonoBehaviour
         Button btn2 = ContinueButton.GetComponent<Button>(); //Continue gaming
         btn2.onClick.AddListener(ContinueGame);
 
-        Button btn3 = ContinueButton.GetComponent<Button>(); //Show tutorial
+        Button btn3 = TutorialButton.GetComponent<Button>(); //Show tutorial
         btn3.onClick.AddListener(showTutorial);
 
-        Button btn4 = ContinueButton.GetComponent<Button>(); //End game
-        btn4.onClick.AddListener(EndGame);
+        Button btn4 = RetryGameButton.GetComponent<Button>(); //Retry game
+        btn4.onClick.AddListener(RetryGame);
+
+        Button btn5 = EndGameButton.GetComponent<Button>(); //End game
+        btn5.onClick.AddListener(EndGame);
     }
 
     //pauses game
@@ -60,14 +66,19 @@ public class Pause : MonoBehaviour
     //remember make the parameter for the button
     private void showTutorial()
     {
-        //show tutorial
+        tutorialPanel.SetActive(true);
+        pausePanel.SetActive(false);
+    }
+
+    //remember make the parameter for the button
+    private void RetryGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     //remember make the parameter for the button
     private void EndGame()
     {
-        //go back to mainmenu
+        SceneManager.LoadScene(sceneBuildIndex:0);
     }
-
-
 }
