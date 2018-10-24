@@ -6,7 +6,6 @@ public class setVolumeForLevel : MonoBehaviour
 {
 
     private AudioSource audioSrc;
-    public GameObject obj;
 
     // Use this for initialization
     void Start()
