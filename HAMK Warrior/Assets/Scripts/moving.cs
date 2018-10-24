@@ -43,6 +43,7 @@ public class moving : MonoBehaviour
 
     //Parameters for UI
     public Button btn_jump;
+    public Button btn_attack;
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
@@ -226,6 +227,8 @@ public class moving : MonoBehaviour
         }
         if (health <= 0)
         {
+            btn_jump.interactable = false;
+            btn_attack.interactable = false;
             heart1.SetActive(false);
             heart2.SetActive(false);
             heart3.SetActive(false);
