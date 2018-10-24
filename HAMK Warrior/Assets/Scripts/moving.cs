@@ -120,6 +120,10 @@ public class moving : MonoBehaviour
     // Grounded bool forces player goes to ground and then they can jump once again (no douple or triple jumps allowed)
     void TaskOnClick()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.Translate(Vector2.up * jump * Time.deltaTime);
         if (grounded)

@@ -55163,6 +55163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuButton: {fileID: 1989271984}
+  hearts: {fileID: 151172752}
 --- !u!1 &1527488448
 GameObject:
   m_ObjectHideFlags: 0

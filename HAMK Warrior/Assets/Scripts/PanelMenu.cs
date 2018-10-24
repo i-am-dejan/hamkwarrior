@@ -5,14 +5,16 @@ using UnityEngine;
 public class PanelMenu : MonoBehaviour {
 
     public GameObject MenuButton;
+    public GameObject hearts;
 
-	public void StartGame ()
+    public void StartGame ()
     {
         GameObject panel = GameObject.FindGameObjectWithTag("Panel");
         panel.SetActive(false);
         Debug.Log("Close Introdution Panel");
         Time.timeScale = 1.0f;
         MenuButton.SetActive(true);
+        hearts.gameObject.SetActive(true);
 
     }
 }
