@@ -43,6 +43,8 @@ public class bananaMovement : MonoBehaviour
         {
             Debug.Log("BANANA HIT");
             Destroy(gameObject);
+            collision.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            collision.gameObject.GetComponent<Collider2D>().enabled = false;
             GameObject golem = collision.gameObject;
             Animator golemAnim = golem.GetComponent<Animator>();
             golemAnim.SetTrigger("isDead");
