@@ -25,6 +25,7 @@ public class moving : MonoBehaviour
     private float lastAttackTime;
     public float attackDelay;
     public static bool isDead = false;
+    public GameObject GameOverPanel;
 
     // ****************
     // UI
@@ -178,7 +179,7 @@ public class moving : MonoBehaviour
     {
         isDead = false;
         // timer
-        // game over screen
+        GameOverPanel.SetActive(true);
         SceneManager.LoadScene(sceneBuildIndex: 0);
     }
 }
