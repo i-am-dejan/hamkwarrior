@@ -29,6 +29,12 @@ public class moving : MonoBehaviour
     public static int collectedDiamonds = 0;
     public AudioClip MusicClip;
     public AudioSource MusicSource;
+    public AudioSource BackgroundMusic;
+    public AudioClip MusicClipGameOver;
+    public AudioSource MusicSourceGameOver;
+    public AudioClip MusicClipHurting;
+    public AudioSource MusicSourceHurting;
+    public GameObject PauseButton;
 
 
     // ****************
@@ -54,6 +60,9 @@ public class moving : MonoBehaviour
         heart2.SetActive(true);
         heart3.SetActive(true);
         MusicSource.clip = MusicClip;
+        MusicSourceGameOver.clip = MusicClipGameOver;
+        MusicSourceHurting.clip = MusicClipHurting;
+
     }
 
 
@@ -142,6 +151,11 @@ public class moving : MonoBehaviour
     // ****************
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        if (!IsGameable)
+        {
+            return;
+        }
         //If player collided objects which have tag named:"Ground", make grounded-value true
         if (collision.transform.tag == "ground")
         {
@@ -153,6 +167,7 @@ public class moving : MonoBehaviour
         }
         if (collision.transform.tag == "enemy")
         {
+            MusicSourceHurting.Play();
             if (Time.time > lastAttackTime + attackDelay)
             {
                 Debug.Log("HUUUUUUUUUUUUUUUUUUUUUUUURT");
@@ -223,8 +238,21 @@ public class moving : MonoBehaviour
     public void MainMenu()
     {
         isDead = false;
-        // timer
+        BackgroundMusic.Stop();
+        MusicSourceGameOver.Play();
         GameOverPanel.SetActive(true);
+        PauseButton.SetActive(false);
+        IsGameable = false;
+        //this.GetComponent<PolygonCollider2D>().enabled=false;
+        StartCoroutine(timer());
+    }
+
+    IEnumerator timer()
+    {
+        Debug.Log("Information table is enabled for 5 sec");
+        yield return new WaitForSeconds(5);
+        Debug.Log("five seconds later...");
         SceneManager.LoadScene(sceneBuildIndex: 0);
+        GameOverPanel.SetActive(false);
     }
 }
