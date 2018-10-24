@@ -29,13 +29,13 @@ public class Pause : MonoBehaviour
         Button btn2 = ContinueButton.GetComponent<Button>(); //Continue gaming
         btn2.onClick.AddListener(ContinueGame);
 
-        Button btn3 = ContinueButton.GetComponent<Button>(); //Show tutorial
+        Button btn3 = TutorialButton.GetComponent<Button>(); //Show tutorial
         btn3.onClick.AddListener(showTutorial);
 
-        Button btn4 = ContinueButton.GetComponent<Button>(); //Retry game
+        Button btn4 = RetryGameButton.GetComponent<Button>(); //Retry game
         btn4.onClick.AddListener(RetryGame);
 
-        Button btn5 = ContinueButton.GetComponent<Button>(); //End game
+        Button btn5 = EndGameButton.GetComponent<Button>(); //End game
         btn5.onClick.AddListener(EndGame);
     }
 
@@ -71,12 +71,12 @@ public class Pause : MonoBehaviour
     //remember make the parameter for the button
     private void RetryGame()
     {
-        //go back to mainmenu
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     //remember make the parameter for the button
     private void EndGame()
     {
-        //SceneManager.LoadScene(sceneBuildIndex:0);
+        SceneManager.LoadScene(sceneBuildIndex:0);
     }
 }

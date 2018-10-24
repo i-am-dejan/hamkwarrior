@@ -57,7 +57,7 @@ public class moving : MonoBehaviour
     // When user tilts phone, player will go forward or backward (depends where user tilts phone)
     void Update()
     {
-        Scores.text = "x " + collectedDiamonds.ToString();
+        Scores.text = " " + collectedDiamonds.ToString();
 
         {
             dirX = 0;

@@ -52,7 +52,7 @@ public class bananaMovement : MonoBehaviour
 
         Invoke("Destroy", 3);
 
-        if (collision.transform.tag == "ground")
+        if (collision.transform.tag == "ground" || collision.transform.tag == "Diamonds")
         {
             Debug.Log("BANANA HIT");
             Destroy(gameObject);
