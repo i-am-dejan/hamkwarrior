@@ -3530,6 +3530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseButton: {fileID: 1989271986}
   pausePanel: {fileID: 752904288}
+  tutorialPanel: {fileID: 1503552027}
   ContinueButton: {fileID: 1529695010}
   hearts: {fileID: 151172752}
   TutorialButton: {fileID: 1164060859}

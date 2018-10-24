@@ -11,6 +11,7 @@ public class Pause : MonoBehaviour
     //Parameters for buttons and texts
     public Button PauseButton; //hide the pausebutton when PauseMenu-panel is active
     public GameObject pausePanel;
+    public GameObject tutorialPanel;
     public Button ContinueButton;
     public GameObject hearts;
     public Button TutorialButton;
@@ -65,7 +66,8 @@ public class Pause : MonoBehaviour
     //remember make the parameter for the button
     private void showTutorial()
     {
-        //show tutorial
+        tutorialPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 
     //remember make the parameter for the button
