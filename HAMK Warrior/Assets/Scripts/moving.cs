@@ -62,7 +62,6 @@ public class moving : MonoBehaviour
     void Update()
     {
         Scores.text = " " + collectedDiamonds.ToString();
-
         {
             dirX = 0;
             Vector3 dir = Vector3.zero;

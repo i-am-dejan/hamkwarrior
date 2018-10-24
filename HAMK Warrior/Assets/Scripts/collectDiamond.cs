@@ -25,7 +25,13 @@ public class collectDiamond : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            moving.collectedDiamonds++;
+            if (moving.collectedDiamonds < 99) {
+                moving.collectedDiamonds++;
+            }
+            else
+            {
+                moving.collectedDiamonds = 0;
+            }
             Debug.Log("Collected Diamonds " + moving.collectedDiamonds);
             MusicSource.Play();
             // collision.gameObject.GetComponent<IncreaseDigit>().increaseNumber();
