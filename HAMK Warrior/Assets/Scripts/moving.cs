@@ -26,6 +26,7 @@ public class moving : MonoBehaviour
     public float attackDelay;
     public static bool isDead = false;
     public GameObject GameOverPanel;
+    public static int collectedDiamonds = 0;
 
     // ****************
     // UI
@@ -33,6 +34,9 @@ public class moving : MonoBehaviour
 
     //Parameters for UI
     public Button btn_jump;
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
 
     // Use this for initialization
     void Start()
@@ -42,6 +46,9 @@ public class moving : MonoBehaviour
         btn1.onClick.AddListener(TaskOnClick);
         localScale = transform.localScale;
         anim = GetComponent<Animator>();
+        heart1.SetActive(true);
+        heart2.SetActive(true);
+        heart3.SetActive(true);
     }
 
 
@@ -167,8 +174,29 @@ public class moving : MonoBehaviour
     {
         health = health - damage;
         Debug.Log("Health = " + health);
+        if (health == 3)
+        {
+            heart1.SetActive(true);
+            heart2.SetActive(true);
+            heart3.SetActive(true);
+        }
+        else if (health == 2)
+        {
+            heart1.SetActive(true);
+            heart2.SetActive(true);
+            heart3.SetActive(false);
+        }
+        else if (health == 1)
+        {
+            heart1.SetActive(true);
+            heart2.SetActive(false);
+            heart3.SetActive(false);
+        }
         if (health <= 0)
         {
+            heart1.SetActive(false);
+            heart2.SetActive(false);
+            heart3.SetActive(false);
             isDead = true;
             anim.SetTrigger("isDead");
             Invoke("MainMenu", 0.8f);
