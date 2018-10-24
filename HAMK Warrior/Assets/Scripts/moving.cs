@@ -27,6 +27,9 @@ public class moving : MonoBehaviour
     public static bool isDead = false;
     public GameObject GameOverPanel;
     public static int collectedDiamonds = 0;
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
+
 
     // ****************
     // UI
@@ -50,6 +53,7 @@ public class moving : MonoBehaviour
         heart1.SetActive(true);
         heart2.SetActive(true);
         heart3.SetActive(true);
+        MusicSource.clip = MusicClip;
     }
 
 
@@ -121,6 +125,7 @@ public class moving : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, jump);
             // rb.AddForce(Vector2.up * 600f);
             grounded = false;
+            MusicSource.Play();
         }
     }
 

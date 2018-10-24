@@ -7,6 +7,8 @@ public class ShootingScript : MonoBehaviour {
 
     public Transform FirePoint;
     public GameObject bananaPrefab;
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
     Animator anim;
 
     // **************
@@ -22,10 +24,11 @@ public class ShootingScript : MonoBehaviour {
         anim = GetComponent<Animator>();
         Button btn1 = btn_attack.GetComponent<Button>();
         btn1.onClick.AddListener(TaskOnClick);
+        MusicSource.clip = MusicClip;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		if(Input.GetButtonDown("Fire3"))
         {
             Shoot();
@@ -36,6 +39,7 @@ public class ShootingScript : MonoBehaviour {
     {
         anim.SetTrigger("isAttacking");
         Invoke("InstantiateBanana", 0.3f);
+        MusicSource.Play();
     }
 
     void InstantiateBanana()
