@@ -57,6 +57,10 @@ public class moving : MonoBehaviour
         {
             Time.timeScale = 0.0f;
         }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
         rb = GetComponent<Rigidbody2D>();
         Button btn1 = btn_jump.GetComponent<Button>();
         btn1.onClick.AddListener(TaskOnClick);
