@@ -74,6 +74,7 @@ public class Pause : MonoBehaviour
     private void RetryGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        moving.collectedDiamonds = moving.collectedDiamondsTotally;
     }
 
     //remember make the parameter for the button
