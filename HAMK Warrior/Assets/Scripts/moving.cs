@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class moving : MonoBehaviour
 {
@@ -22,6 +22,9 @@ public class moving : MonoBehaviour
     Animator anim;
     private int speed = 4;  //this is player's maxspeed that they won't slide throught the objects
     public int health = 3;
+    private float lastAttackTime;
+    public float attackDelay;
+    public static bool isDead = false;
 
     // ****************
     // UI
@@ -60,7 +63,10 @@ public class moving : MonoBehaviour
 
             //Move object
             //normally you don't use minus in dir but in this project it was needed that player will go forward when phone is tilted to right
-            transform.Translate(-dir * speed);
+            if (!isDead)
+            {
+                transform.Translate(-dir * speed);
+            }
         }
 
         /* --------------------------------------------------- */
@@ -68,9 +74,9 @@ public class moving : MonoBehaviour
         float move = Input.GetAxis("Horizontal");
 
         dirX = move * MaxSpeed;
-
-        GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-
+        if (!isDead) {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        }
         /* --------------------------------------------------- */
 
         if (dirX != 0)
@@ -120,11 +126,20 @@ public class moving : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        /*  if(collision.transform.tag == "enemy")
-          {
-              Debug.Log("HUUUUUUUUUUUUUUUUUUUUUUUURT");
-              anim.SetTrigger("isHurt");
-          }*/
+        if (collision.transform.tag == "enemy")
+        {
+            if (Time.time > lastAttackTime + attackDelay)
+            {
+                Debug.Log("HUUUUUUUUUUUUUUUUUUUUUUUURT");
+                if (health > 1)
+                {
+                    anim.SetTrigger("isHurt");
+                }
+                TakeDamage(1);
+                lastAttackTime = Time.time;
+            }
+
+        }
     }
 
     //void FixedUpdate()
@@ -153,7 +168,17 @@ public class moving : MonoBehaviour
         Debug.Log("Health = " + health);
         if (health <= 0)
         {
-            // DEAD
+            isDead = true;
+            anim.SetTrigger("isDead");
+            Invoke("MainMenu", 0.8f);
         }
+    }
+
+    public void MainMenu()
+    {
+        isDead = false;
+        // timer
+        // game over screen
+        SceneManager.LoadScene(sceneBuildIndex: 0);
     }
 }

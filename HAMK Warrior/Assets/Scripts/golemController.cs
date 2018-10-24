@@ -23,7 +23,10 @@ public class golemController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        if (!moving.isDead)
+        {
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+        }
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 2f);
         
@@ -51,7 +54,9 @@ public class golemController : MonoBehaviour
                 //target.SendMessage("TakeDamage", damage);
 
                 //anim.SetBool("isAttacking", true);
-                anim.SetTrigger("isAttacking2");
+                if (!moving.isDead) {
+                    anim.SetTrigger("isAttacking2");
+                }
                 // Record the time we attack
                 lastAttackTime = Time.time;
             }
@@ -65,16 +70,20 @@ public class golemController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (movingRight == true)
+        if (collision.gameObject.name != "Player")
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            movingRight = false;
+            if (movingRight == true)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                movingRight = false;
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, -180, 0);
+                movingRight = true;
+            }
         }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, -180, 0);
-            movingRight = true;
-        }
+
     }
 
 
