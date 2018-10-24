@@ -29,6 +29,12 @@ public class moving : MonoBehaviour
     public static int collectedDiamonds = 0;
     public AudioClip MusicClip;
     public AudioSource MusicSource;
+    public AudioSource BackgroundMusic;
+    public AudioClip MusicClipGameOver;
+    public AudioSource MusicSourceGameOver;
+    public AudioClip MusicClipHurting;
+    public AudioSource MusicSourceHurting;
+    public GameObject PauseButton;
 
 
     // ****************
@@ -41,7 +47,7 @@ public class moving : MonoBehaviour
     public GameObject heart2;
     public GameObject heart3;
     public Text Scores;
-
+    public bool IsGameable = true;
     // Use this for initialization
     void Start()
     {
@@ -54,6 +60,9 @@ public class moving : MonoBehaviour
         heart2.SetActive(true);
         heart3.SetActive(true);
         MusicSource.clip = MusicClip;
+        MusicSourceGameOver.clip = MusicClipGameOver;
+        MusicSourceHurting.clip = MusicClipHurting;
+
     }
 
 
@@ -61,8 +70,12 @@ public class moving : MonoBehaviour
     // When user tilts phone, player will go forward or backward (depends where user tilts phone)
     void Update()
     {
-        Scores.text = " " + collectedDiamonds.ToString();
+        if (!IsGameable)
+        {
+            return;
+        }
 
+        Scores.text = " " + collectedDiamonds.ToString();
         {
             dirX = 0;
             Vector3 dir = Vector3.zero;
@@ -116,6 +129,10 @@ public class moving : MonoBehaviour
     // Grounded bool forces player goes to ground and then they can jump once again (no douple or triple jumps allowed)
     void TaskOnClick()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         Vector2 clickPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.Translate(Vector2.up * jump * Time.deltaTime);
         if (grounded)
@@ -134,6 +151,11 @@ public class moving : MonoBehaviour
     // ****************
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        if (!IsGameable)
+        {
+            return;
+        }
         //If player collided objects which have tag named:"Ground", make grounded-value true
         if (collision.transform.tag == "ground")
         {
@@ -145,6 +167,7 @@ public class moving : MonoBehaviour
         }
         if (collision.transform.tag == "enemy")
         {
+            MusicSourceHurting.Play();
             if (Time.time > lastAttackTime + attackDelay)
             {
                 Debug.Log("HUUUUUUUUUUUUUUUUUUUUUUUURT");
@@ -215,8 +238,21 @@ public class moving : MonoBehaviour
     public void MainMenu()
     {
         isDead = false;
-        // timer
+        BackgroundMusic.Stop();
+        MusicSourceGameOver.Play();
         GameOverPanel.SetActive(true);
+        PauseButton.SetActive(false);
+        IsGameable = false;
+        //this.GetComponent<PolygonCollider2D>().enabled=false;
+        StartCoroutine(timer());
+    }
+
+    IEnumerator timer()
+    {
+        Debug.Log("Information table is enabled for 5 sec");
+        yield return new WaitForSeconds(5);
+        Debug.Log("five seconds later...");
         SceneManager.LoadScene(sceneBuildIndex: 0);
+        GameOverPanel.SetActive(false);
     }
 }

@@ -18,7 +18,8 @@ public class killPlayer : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Dying>().die();
+            // collision.gameObject.GetComponent<moving>().MainMenu();
+            collision.gameObject.GetComponent<moving>().TakeDamage(3);
         }
     }
 }

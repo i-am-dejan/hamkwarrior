@@ -37,6 +37,10 @@ public class ShootingScript : MonoBehaviour {
 
     void Shoot()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         anim.SetTrigger("isAttacking");
         Invoke("InstantiateBanana", 0.3f);
         MusicSource.Play();
