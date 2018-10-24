@@ -29,9 +29,17 @@ public class EndGame : MonoBehaviour
             MusicSource.Play();
             BackgroundSound.Stop();
             Debug.Log("You are a winner");
-            //Time.timeScale = 0.0f;
-            panel.SetActive(true);
+            player.GetComponent<moving>().IsGameable = false;
+            StartCoroutine(timer());
         }
+    }
 
+    IEnumerator timer()
+    {
+        Debug.Log("Information table is enabled for 5 sec");
+        yield return new WaitForSeconds(5);
+        Debug.Log("five seconds later...");
+        panel.SetActive(true);
+        player.GetComponent<moving>().IsGameable = true;
     }
 }

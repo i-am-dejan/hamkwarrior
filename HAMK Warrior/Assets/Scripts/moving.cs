@@ -41,7 +41,7 @@ public class moving : MonoBehaviour
     public GameObject heart2;
     public GameObject heart3;
     public Text Scores;
-
+    public bool IsGameable = true;
     // Use this for initialization
     void Start()
     {
@@ -61,6 +61,11 @@ public class moving : MonoBehaviour
     // When user tilts phone, player will go forward or backward (depends where user tilts phone)
     void Update()
     {
+        if (!IsGameable)
+        {
+            return;
+        }
+
         Scores.text = " " + collectedDiamonds.ToString();
         {
             dirX = 0;
