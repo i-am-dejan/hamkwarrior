@@ -170,7 +170,6 @@ public class moving : MonoBehaviour
         }
         if (collision.transform.tag == "enemy")
         {
-            MusicSourceHurting.Play();
             if (Time.time > lastAttackTime + attackDelay)
             {
                 Debug.Log("HUUUUUUUUUUUUUUUUUUUUUUUURT");
@@ -179,6 +178,7 @@ public class moving : MonoBehaviour
                     anim.SetTrigger("isHurt");
                 }
                 TakeDamage(1);
+                MusicSourceHurting.Play();
                 lastAttackTime = Time.time;
             }
 
