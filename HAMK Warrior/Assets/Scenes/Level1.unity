@@ -1703,7 +1703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Close
+  m_Text: CLOSE
 --- !u!222 &271214688
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5012,7 +5012,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.078431375}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.11764706}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -54906,7 +54906,13 @@ Prefab:
       propertyPath: MusicSourceHurting
       value: 
       objectReference: {fileID: 1852705405}
-    m_RemovedComponents: []
+    - target: {fileID: 114635128393311060, guid: f9946bd322af1f54b971977c4651fdce,
+        type: 2}
+      propertyPath: btn_attack
+      value: 
+      objectReference: {fileID: 1668434235}
+    m_RemovedComponents:
+    - {fileID: 114339852091930984, guid: f9946bd322af1f54b971977c4651fdce, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: f9946bd322af1f54b971977c4651fdce, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1457024643
@@ -55957,7 +55963,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.078431375}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.11764706}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -56813,7 +56819,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 15
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -68849,6 +68855,8 @@ MonoBehaviour:
   MusicClip: {fileID: 8300000, guid: 921192fc48143a947b189a71197c794b, type: 3}
   MusicSource: {fileID: 477684415}
   BackgroundSound: {fileID: 564577082}
+  buttonleft: {fileID: 974140084}
+  buttonright: {fileID: 1668434234}
 --- !u!1 &1989271984
 GameObject:
   m_ObjectHideFlags: 0
