@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Pause : MonoBehaviour
     public Button ContinueButton;
     public GameObject hearts;
     public Button TutorialButton;
+    public Button RetryGameButton;
     public Button EndGameButton;
 
     //set pausepanel and child objects visible
@@ -30,8 +32,11 @@ public class Pause : MonoBehaviour
         Button btn3 = ContinueButton.GetComponent<Button>(); //Show tutorial
         btn3.onClick.AddListener(showTutorial);
 
-        Button btn4 = ContinueButton.GetComponent<Button>(); //End game
-        btn4.onClick.AddListener(EndGame);
+        Button btn4 = ContinueButton.GetComponent<Button>(); //Retry game
+        btn4.onClick.AddListener(RetryGame);
+
+        Button btn5 = ContinueButton.GetComponent<Button>(); //End game
+        btn5.onClick.AddListener(EndGame);
     }
 
     //pauses game
@@ -64,10 +69,14 @@ public class Pause : MonoBehaviour
     }
 
     //remember make the parameter for the button
-    private void EndGame()
+    private void RetryGame()
     {
         //go back to mainmenu
     }
 
-
+    //remember make the parameter for the button
+    private void EndGame()
+    {
+        //SceneManager.LoadScene(sceneBuildIndex:0);
+    }
 }

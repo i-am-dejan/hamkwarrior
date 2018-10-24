@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         Time.timeScale = 0.0f;
+        moving.collectedDiamonds = 0;
     }
 
     public void QuitGame ()
