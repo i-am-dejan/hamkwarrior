@@ -40,7 +40,9 @@ public class EndGame : MonoBehaviour
             buttonleft.SetActive(false);
             buttonright.SetActive(false);
             MusicSource.Play();
-            StartCoroutine(timer());
+            //StartCoroutine(timer());
+            Time.timeScale = 0.0f;
+            panel.SetActive(true);
             //player.GetComponent<moving>().IsGameable = false;
         }
     }
