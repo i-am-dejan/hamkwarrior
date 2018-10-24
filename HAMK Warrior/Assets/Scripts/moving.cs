@@ -20,7 +20,7 @@ public class moving : MonoBehaviour
     Vector3 localScale;
     public bool grounded = false;
     Animator anim;
-    private int speed = 4;  //this is player's maxspeed that they won't slide throught the objects
+    private int speed = 8;  //this is player's maxspeed that they won't slide throught the objects
     public int health = 3;
     private float lastAttackTime;
     public float attackDelay;
@@ -80,15 +80,15 @@ public class moving : MonoBehaviour
             }
         }
 
-        /* --------------------------------------------------- */
-        /* DELETE THIS - TESTING PURPOSES ONLY */
-        float move = Input.GetAxis("Horizontal");
+        ///* --------------------------------------------------- */
+        ///* DELETE THIS - TESTING PURPOSES ONLY */
+        //float move = Input.GetAxis("Horizontal");
 
-        dirX = move * MaxSpeed;
-        if (!isDead) {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        }
-        /* --------------------------------------------------- */
+        //dirX = move * MaxSpeed;
+        //if (!isDead) {
+        //    GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        //}
+        ///* --------------------------------------------------- */
 
         if (dirX != 0)
         {
