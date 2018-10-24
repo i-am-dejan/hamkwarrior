@@ -46,6 +46,7 @@ public class bananaMovement : MonoBehaviour
             GameObject golem = collision.gameObject;
             Animator golemAnim = golem.GetComponent<Animator>();
             golemAnim.SetTrigger("isDead");
+            Destroy(collision.gameObject,1);
 
         }
 

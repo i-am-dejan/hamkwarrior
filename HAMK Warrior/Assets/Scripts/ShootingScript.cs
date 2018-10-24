@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShootingScript : MonoBehaviour {
 
@@ -8,9 +9,19 @@ public class ShootingScript : MonoBehaviour {
     public GameObject bananaPrefab;
     Animator anim;
 
+    // **************
+    // UI
+    // **************
+
+    //Parameters for UI
+    public Button btn_attack;
+
+
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
+        Button btn1 = btn_attack.GetComponent<Button>();
+        btn1.onClick.AddListener(TaskOnClick);
     }
 	
 	// Update is called once per frame
@@ -30,5 +41,10 @@ public class ShootingScript : MonoBehaviour {
     void InstantiateBanana()
     {
         Instantiate(bananaPrefab, FirePoint.position, FirePoint.rotation);
+    }
+
+    void TaskOnClick ()
+    {
+        Shoot();
     }
 }
