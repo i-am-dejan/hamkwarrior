@@ -107,16 +107,16 @@ public class moving : MonoBehaviour
             }
         }
 
-        /* --------------------------------------------------- */
-        /* DELETE THIS - TESTING PURPOSES ONLY */
-        float move = Input.GetAxis("Horizontal");
+        ///* --------------------------------------------------- */
+        ///* DELETE THIS - TESTING PURPOSES ONLY */
+        //float move = Input.GetAxis("Horizontal");
 
-        dirX = move * MaxSpeed;
-        if (!isDead)
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        }
-        /* --------------------------------------------------- */
+        //dirX = move * MaxSpeed;
+        //if (!isDead)
+        //{
+        //    GetComponent<Rigidbody2D>().velocity = new Vector2(move * MaxSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        //}
+        ///* --------------------------------------------------- */
 
         if (dirX != 0)
         {
