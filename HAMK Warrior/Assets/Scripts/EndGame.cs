@@ -13,6 +13,7 @@ public class EndGame : MonoBehaviour
     public AudioSource BackgroundSound;
     public GameObject buttonleft;
     public GameObject buttonright;
+    public GameObject MenuButton;
     private bool stopUpdate = false;
 
     // Use this for initialization
@@ -40,6 +41,7 @@ public class EndGame : MonoBehaviour
             buttonleft.SetActive(false);
             buttonright.SetActive(false);
             MusicSource.Play();
+            MenuButton.SetActive(false);
             //StartCoroutine(timer());
             Time.timeScale = 0.0f;
             panel.SetActive(true);
